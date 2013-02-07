@@ -113,7 +113,7 @@ directory "#{node['application']['rails_root']}/shared/log/rg_delayed_job" do
 end
 
 runit_service "rg_delayed_job" do
-  options node['application']
+  options node['application'].to_hash
   vars = (node['application']['environment_variables'] || {})
   vars['RAILS_ENV'] ||= "production"
   env vars
