@@ -1,41 +1,34 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apache2 (1.4.2)
+    apache2 (1.5.0)
     application (2.0.0)
-    application_ruby (1.0.10)
-      apache2 (>= 0.0.0)
-      application (>= 0.0.0)
-      passenger_apache2 (>= 0.0.0)
-      runit (<= 0.16.2)
-      unicorn (>= 0.0.0)
     apt (1.7.0)
     bash-completion (0.1.0)
-    build-essential (1.3.2)
+    build-essential (1.3.4)
     chef_handler (1.1.4)
     curl (1.1.0)
     dmg (1.1.0)
-    git (2.1.4)
+    git (2.1.2)
       build-essential (>= 0.0.0)
       dmg (>= 0.0.0)
-      runit (<= 0.16.2)
+      runit (>= 0.0.0)
       windows (>= 0.0.0)
       yum (>= 0.0.0)
     grc (1.0.0)
     hostname (0.0.3)
-    htop (0.1.0)
+    htop (1.0.0)
     iftop (0.0.1)
     imagemagick (0.2.2)
     logrotate (1.1.0)
     logwatch (1.0.2)
       perl (>= 0.0.0)
-    memcached (1.2.0)
-      runit (<= 0.16.2)
-      yum (>= 0.0.0)
+    memcached (1.1.2)
+      runit (>= 0.0.0)
     munin (1.1.2)
       apache2 (>= 1.0.6)
       nginx (>= 0.0.0)
-    newrelic-sysmond (1.3.0)
+    newrelic-sysmond (1.3.1)
     ntp (1.3.2)
     openssh (1.1.4)
     openssl (1.0.0)
@@ -46,7 +39,6 @@ SITE
     postfix (2.1.4)
     resolver (1.1.0)
     rsync (0.8.0)
-    runit (0.16.2)
     screen (0.8.0)
       build-essential (>= 0.0.0)
       git (>= 0.0.0)
@@ -60,6 +52,26 @@ SITE
       build-essential (>= 0.0.0)
     xslt (0.0.1)
     yum (2.1.0)
+
+GIT
+  remote: https://github.com/dwradcliffe/chef-application_ruby
+  ref: rubygems
+  sha: 5f730a6b6296dac9a96c156ef9f1192fd187d27d
+  specs:
+    application_ruby (1.0.10)
+      apache2 (>= 0.0.0)
+      application (>= 0.0.0)
+      passenger_apache2 (>= 0.0.0)
+      runit (>= 1.0.0)
+      unicorn (>= 0.0.0)
+
+GIT
+  remote: https://github.com/dwradcliffe/chef-runit
+  ref: COOK-2351
+  sha: 680b061d61eeca080befb77441372c9cf41cc0cf
+  specs:
+    runit (1.0.2)
+      build-essential (>= 0.0.0)
 
 GIT
   remote: https://github.com/fnichol/chef-user
@@ -85,17 +97,17 @@ GIT
 GIT
   remote: https://github.com/phlipper/chef-nginx
   ref: master
-  sha: ee74c7e56086f90618aedf15fac24569a920ad5a
+  sha: 6cd7f9dc9489e1e796761e086900e1510853a7e9
   specs:
-    nginx (0.4.1)
+    nginx (0.4.2)
       apt (>= 0.0.0)
 
 GIT
   remote: https://github.com/phlipper/chef-nodejs
   ref: master
-  sha: 15254a934d1f84ef73004be0fdd41943f6b3613f
+  sha: ffbb7d56c5321fc4ccc18b7c745cf8caf27e08be
   specs:
-    nodejs (1.4.0)
+    nodejs (1.5.0)
       apt (>= 1.4.4)
 
 GIT
@@ -109,9 +121,9 @@ GIT
 GIT
   remote: https://github.com/phlipper/chef-redis
   ref: master
-  sha: 754968132d6a3e1aa5c0cb7724d7df5e4390e6ba
+  sha: 211571e0b9f685bac2f73c147be6edc1b9ccf01f
   specs:
-    redis (0.4.0)
+    redis (0.5.0)
       apt (>= 0.0.0)
 
 GIT
@@ -152,6 +164,7 @@ DEPENDENCIES
   redis (>= 0)
   resolver (>= 0)
   rsync (>= 0)
+  runit (>= 0)
   screen (>= 0)
   sudo (>= 0)
   sysstat (>= 0)

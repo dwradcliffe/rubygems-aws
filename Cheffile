@@ -2,7 +2,9 @@ site "http://community.opscode.com/api/v1"
 
 cookbook "application"
 
-cookbook "application_ruby"
+cookbook "application_ruby",
+  :git => 'https://github.com/dwradcliffe/chef-application_ruby',
+  :ref => 'rubygems'
 
 cookbook "apt", "1.7.0"
 
@@ -81,3 +83,7 @@ cookbook "xml"
 cookbook "xslt"
 
 cookbook "xfs"
+
+cookbook 'runit',
+  :git => 'https://github.com/dwradcliffe/chef-runit',
+  :ref => 'COOK-2351'
