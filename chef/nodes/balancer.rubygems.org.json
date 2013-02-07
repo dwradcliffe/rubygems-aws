@@ -14,9 +14,11 @@
     "ssl_key": "rubygems.org.key",
     "ssl_cert": "rubygems.org.crt",
     "app_server": {
-      "name": "thin",
+      "name": "unicorn",
       "concurrency": 4
-    }
+    },
+    "application_servers": [ "10.249.31.114" ],
+    "stat_server": "10.249.31.114:5000"
   }
 
 }
