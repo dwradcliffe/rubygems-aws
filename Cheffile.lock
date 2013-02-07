@@ -56,7 +56,7 @@ SITE
 GIT
   remote: https://github.com/dwradcliffe/chef-application_ruby
   ref: rubygems
-  sha: 5f730a6b6296dac9a96c156ef9f1192fd187d27d
+  sha: c24f107ba8791e38ee30d28a09af503ede28962f
   specs:
     application_ruby (1.0.10)
       apache2 (>= 0.0.0)
