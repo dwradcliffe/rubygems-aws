@@ -14,7 +14,6 @@ Chef cookbooks and bootstrap scripts to configure and manage Rubygems.org AWS in
 
     $ vagrant up
     $ knife solo cook vagrant@33.33.33.10 chef/nodes/app.vagrant.json -i ~/.vagrant.d/insecure_private_key -N vagrant-app
-    $ knife solo cook vagrant@33.33.33.11 chef/nodes/balancer.vagrant.json -i ~/.vagrant.d/insecure_private_key -N vagrant-balancer
 
 NOTE: We are in the process of moving to the built-in vagrant chef solo provisioner.
 
@@ -32,7 +31,7 @@ Run chef (modify these commands as you need to):
 
     $ knife solo cook $DEPLOY_USER@ec2-54-245-133-190.us-west-2.compute.amazonaws.com chef/nodes/dbmaster02.json -i $DEPLOY_SSH_KEY -N dbmaster02
     $ knife solo cook $DEPLOY_USER@ec2-54-245-134-70.us-west-2.compute.amazonaws.com chef/nodes/app.production.json -i $DEPLOY_SSH_KEY -N app01
-    $ knife solo cook $DEPLOY_USER@rubygems.org chef/nodes/balancer.production.json -i $DEPLOY_SSH_KEY -N balancer02
+    $ knife solo cook $DEPLOY_USER@rubygems.org chef/nodes/balancer02.json -i $DEPLOY_SSH_KEY -N balancer02
 
 ## AMI's
 

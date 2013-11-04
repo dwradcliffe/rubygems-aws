@@ -26,6 +26,31 @@ Vagrant::Config.run do |config|
     # Use more RAM to assist with setting up lots of infra
     balancer.vm.customize ["modifyvm", :id, "--memory", "768"]
 
+    balancer.vm.provision 'chef_solo' do |chef|
+      chef.cookbooks_path = ['chef/cookbooks', 'chef/site-cookbooks']
+      chef.roles_path = 'chef/roles'
+      chef.data_bags_path = 'chef/data_bags'
+      chef.add_role 'balancer'
+      chef.add_role 'vagrant'
+      chef.json = {
+        "application" => {
+          "name" => "rubygems",
+          "repository" => "https://github.com/rubygems/rubygems.org.git",
+          "rails_env" => "staging",
+          "rails_root" => "/applications/rubygems/staging",
+          "server_names" => ["rubygems.phlippers.net"],
+          "use_ssl" => true,
+          "force_ssl" => true,
+          "ssl_key" => "dev.rubygems.org.key",
+          "ssl_cert" => "dev.rubygems.org.crt",
+          "app_server" => {
+            "name" => "thin",
+            "concurrency" => 4
+          }
+        }
+      }
+    end
+
     balancer.vm.network :hostonly, "33.33.33.11"
   end
 

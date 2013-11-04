@@ -1,8 +1,6 @@
 {
   "run_list": ["role[balancer]"],
-  "sudo" : {
-     "add_vagrant" : false
-   },
+  "set_fqdn": "balancer02.rubygems.org",
   "application": {
     "name": "balancer",
     "repository": "https://github.com/rubygems/rubygems.org.git",
