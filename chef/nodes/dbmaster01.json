@@ -1,0 +1,4 @@
+{
+  "run_list": ["role[rubygems_db_master]"],
+  "set_fqdn": "dbmaster01.rubygems.org"
+}

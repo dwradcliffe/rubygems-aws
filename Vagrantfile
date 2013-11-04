@@ -31,11 +31,19 @@ Vagrant::Config.run do |config|
 
   config.vm.define :dbmaster do |dbmaster|
     dbmaster.vm.host_name = "rubygems-org-dbmaster"
-    dbmaster.vm.box = "opscode-ubuntu-12.04"
-    dbmaster.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-10.18.2.box"
+    dbmaster.vm.box = "opscode-ubuntu-12.04-chef-11.4.4"
+    dbmaster.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box"
 
     # Use more RAM to assist with setting up lots of infra
     dbmaster.vm.customize ["modifyvm", :id, "--memory", "768"]
+
+    dbmaster.vm.provision 'chef_solo' do |chef|
+      chef.cookbooks_path = ['chef/cookbooks', 'chef/site-cookbooks']
+      chef.roles_path = 'chef/roles'
+      chef.data_bags_path = 'chef/data_bags'
+      chef.add_role 'rubygems_db_master'
+      chef.add_role 'vagrant'
+    end
 
     dbmaster.vm.network :hostonly, "33.33.33.12"
   end

@@ -1,6 +1,4 @@
 {
   "run_list": ["role[rubygems_db_master]"],
-  "sudo" : {
-     "add_vagrant" : false
-   }
+  "set_fqdn": "dbmaster02.rubygems.org"
 }
