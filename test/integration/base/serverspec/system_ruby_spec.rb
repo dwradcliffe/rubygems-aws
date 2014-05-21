@@ -10,4 +10,8 @@ describe 'rubygems::system_ruby' do
     it { should return_stdout(/ruby 1\.9\.3p0/) }
   end
 
+  describe command('gem -v') do
+    it { should return_stdout(/2\.2\.2/) }
+  end
+
 end
